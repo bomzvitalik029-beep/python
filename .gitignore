@@ -1,0 +1,133 @@
+# импортируем модуль math для использования функции квадратного корня (sqrt)
+import math
+
+# задание 1: тест с фиксированными вопросами
+def run_test():
+  # вопрос 1
+  print("вопрос 1: 2 + 2 * 2 = ?")
+  print("1) 8")
+  print("2) 6")
+  print("3) 4")
+  answer1 = input("введите номер ответа: ")
+  if answer1 == "2":
+    print("правильно")
+  else:
+    print("не правильно")
+  print() # пустая строка для разделения
+
+  # вопрос 2
+  print("вопрос 2: столица италии?")
+  print("1) рим")
+  print("2) мадрид")
+  print("3) париж")
+  answer2 = input("введите номер ответа: ")
+  if answer2 == "1":
+    print("правильно")
+  else:
+    print("не правильно")
+  print()
+
+  # вопрос 3
+  print("вопрос 3: какой язык мы сейчас учим?")
+  print("1) c++")
+  print("2) java")
+  print("3) python")
+  answer3 = input("введите номер ответа: ")
+  if answer3 == "3":
+    print("правильно")
+  else:
+    print("не правильно")
+
+# задание 2: решение квадратного уравнения
+def solve_quadratic_equation():
+  print("введите коэффициенты для уравнения ax^2 + bx + c = 0")
+  a = float(input("введите a: "))
+  b = float(input("введите b: "))
+  c = float(input("введите c: "))
+
+  # вычисляем дискриминант
+  discriminant = (b**2) - (4 * a * c)
+
+  if discriminant > 0:
+    # два корня, если дискриминант больше нуля
+    x1 = (-b + math.sqrt(discriminant)) / (2 * a)
+    x2 = (-b - math.sqrt(discriminant)) / (2 * a)
+    print(f"корни: x1 = {x1}, x2 = {x2}")
+  elif discriminant == 0:
+    # один корень, если дискриминант равен нулю
+    x = -b / (2 * a)
+    print(f"корень: x = {x}")
+  else:
+    # нет действительных корней, если дискриминант меньше нуля
+    print("уравнение не имеет действительных корней.")
+
+# задание 3: среднее арифметическое четных чисел
+def calculate_average_of_evens():
+  print("вводите числа. для завершения введите 100.")
+
+  sum_of_evens = 0
+  count_of_evens = 0
+  current_number = int(input())
+
+  # цикл продолжается, пока не введут 100
+  while current_number != 100:
+    # проверяем, является ли число четным
+    if current_number % 2 == 0:
+      sum_of_evens += current_number
+      count_of_evens += 1
+    current_number = int(input())
+
+  # завершающее число 100 тоже нужно учесть, если оно четное
+  if 100 % 2 == 0:
+      sum_of_evens += 100
+      count_of_evens += 1
+
+  # вычисляем среднее, если были найдены четные числа
+  if count_of_evens > 0:
+    average = sum_of_evens / count_of_evens
+    print(f"среднее арифметическое четных чисел: {average}")
+  else:
+    print("четных чисел не было.")
+
+# задание 4: проверка первой буквы в словах
+def check_first_letter():
+  print("введите предложение:")
+  text = input()
+  
+  # переменная-флаг, которая будет показывать результат
+  result = "YES"
+  # добавляем пробел в начало, чтобы упростить проверку первого слова
+  text = " " + text
+  
+  # i будет номером символа в строке
+  i = 1
+  # проходим по строке, начиная со второго символа
+  while i < len(text):
+    # если предыдущий символ - пробел, значит текущий - начало слова
+    if text[i-1] == ' ':
+      # получаем первую букву слова
+      first_letter = text[i].upper()
+      # проверяем, не входит ли она в разрешенный набор
+      if first_letter not in ('A', 'B', 'C'):
+        result = "NO"
+        # если нашли слово с неправильной буквой, дальше можно не проверять
+        break
+    i += 1
+    
+  print(result)
+
+
+# основной блок программы
+print("введите номер задания (1, 2, 3 или 4):")
+task_number = input()
+
+if task_number == "1":
+  run_test()
+elif task_number == "2":
+  solve_quadratic_equation()
+elif task_number == "3":
+  calculate_average_of_evens()
+elif task_number == "4":
+  check_first_letter()
+else:
+  print("неверный номер задания.")
