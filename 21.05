@@ -1,0 +1,53 @@
+from tkinter import *
+from tkinter import messagebox
+
+root = Tk() # создаем корневой объект - окно
+root.title("to-do list") # устанавливаем заголовок окна
+root.geometry("350x500") # устанавливаем размеры окна
+label = Label(text="to-do list") # создаем текстовую метку
+label.pack()
+
+entry = Entry() # создаем поле для ввода текста
+entry.pack()
+
+listbox = Listbox(root)
+
+def add_Task():
+    if entry.get() == "":
+        return
+    else:
+        task = entry.get()
+        listbox.insert(END, task)
+        entry.delete(0, END)
+
+submit = Button(text="Подтвердить", command=add_Task) # создаем кнопку
+submit.pack()
+
+listbox.pack()
+
+
+def delete_task():
+    index = listbox.curselection()
+    
+    if index =="":
+        return
+    else:
+        listbox.delete(index)
+
+
+
+delete = Button(text="Удалить", command=delete_task)
+delete.pack()
+
+def readTask():
+    index = listbox.curselection()
+    if not index:
+        return
+    else:
+        task = listbox.get(index)
+        messagebox.showinfo("задача:", task)
+
+read= Button(text ="Прочитать задачу", command = readTask)
+read.pack()
+
+mainloop() # запускаем главный цикл обработки событий
