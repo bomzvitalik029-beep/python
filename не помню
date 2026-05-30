@@ -1,0 +1,88 @@
+@@ -0,0 +1,87 @@
+#задача 1 с покупками
+item1 = 250;  
+item2 = 150;
+print("Сумма покупок:", item1 + item2)
+
+print("ㅤ")
+
+#задача 2 с прямоугольником
+
+length = 5
+width = 10
+print("Площадь прямоугольника:", (length * width))
+
+print("ㅤ")
+
+#задача 3 с средним баллом
+grades =[5,4,5]
+print("Средний балл:", round(sum(grades) / len(grades), 2))
+
+print("ㅤ")
+
+#задача 4 с временем
+seconds = 125
+minutes = seconds // 60
+remaining = seconds % 60
+print("Осталось:", remaining, "секунд и", minutes, "минуты")
+
+print("ㅤ")
+
+#задача 5 с конфетами
+
+total_candies = 20
+friend = 3
+print("Каждому по", total_candies // friend, "конфет, останется", total_candies % friend, "конфет")
+
+print("ㅤ")
+
+#задача 6 с степенями
+
+squared = 7 ** 2
+cubed = 3 ** 3
+print("7 в квадрате:", squared, ", 3 в кубе:", cubed)
+
+print("ㅤ")
+
+#задача 7 (1) с итоговой ценой со скидкой и налогом
+original_price = 1200
+discount = 0.15
+tax = 0.2
+print("Скидка: ", original_price * (1 - discount))
+print("Итоговая цена: ", original_price - (original_price * (1 - discount)) + (original_price * tax))
+
+print("ㅤ")
+
+#задача 8 (2) с конвертации времени
+time_in_seconds = 3665
+hours = time_in_seconds // 3600
+minutes = (time_in_seconds % 3600) // 60
+seconds = time_in_seconds % 60
+print("Время= ",hours,":",minutes,":",seconds)
+
+print("ㅤ")
+print("Дальше вам надо вводить значения")
+print("ㅤ")
+
+#задача 9(3) с имт
+weight = int(input("Введите ваш вес в килограммах: "))
+height = int(input("Введите ваш рост в сантиметрах: "))
+
+imt=round(weight / (height / 100) ** 2, 1)
+print("Ваш индекс массы тела:", imt)
+print("ㅤ")
+
+#задача 10(4) с числом
+mystic_number = int(input("Введите трехзначное число: "))
+num1= mystic_number // 100
+num2 =mystic_number // 10 % 10
+num3 = mystic_number % 10
+print("Сумма цифр:", num1 + num2 + num3)
+print("ㅤ")
+
+#задача 11 (5) с курсом
+exchange_rate = 90.5
+dollars = int(input("Введите сколько долларов вы хотите купить: "))
+comission = 0.025
+total_cost = dollars * exchange_rate * (1 + comission)
+print("Итоговая стоимость с комиссией:", round(total_cost, 2))
